@@ -6,9 +6,7 @@ public class Student {
     private String lastname;
 
     public Student() {
-        id = 0;
-        firstname = null;
-        lastname = null;
+
     }
 
     public Student(int id, String firstname, String lastname){
