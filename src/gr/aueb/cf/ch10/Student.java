@@ -1,15 +1,18 @@
 package gr.aueb.cf.ch10;
 
 public class Student {
+    private static int studentCount = 0;
     private int id;
     private String firstname;
     private String lastname;
 
     public Student() {
+        studentCount++;
 
     }
 
     public Student(int id, String firstname, String lastname){
+        studentCount++;
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -39,5 +42,9 @@ public class Student {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public static int getStudentCount() {
+        return studentCount;
     }
 }
