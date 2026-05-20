@@ -5,6 +5,20 @@ public class Student {
     private String firstname;
     private String lastname;
 
+    public Student() {
+        id = 0;
+        firstname = null;
+        lastname = null;
+    }
+
+    public Student(int id, String firstname, String lastname){
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
+
+
     public int getId() {
         return id;
     }
