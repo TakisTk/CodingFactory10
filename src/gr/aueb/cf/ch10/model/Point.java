@@ -7,6 +7,8 @@ public class Point {
     private int y;
 
     public Point(){
+        x = 0;
+        y = 0;
 
     }
 

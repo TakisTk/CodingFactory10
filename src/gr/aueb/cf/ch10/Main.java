@@ -5,6 +5,11 @@ public class Main {
         Student alice = new Student();  // Default Constructor
         Student bob = new Student();
         Student student = new Student();
+        Teacher teacher = new Teacher(1, "takis", "tzekos");
+        Teacher teacher1 = new Teacher();
+
+        teacher.setFirstname("George");
+        System.out.println("teacher FirstName: " + teacher.getFirstname());
 
         System.out.println(Student.getStudentCount());
 
