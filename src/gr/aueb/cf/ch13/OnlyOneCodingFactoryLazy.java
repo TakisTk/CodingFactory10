@@ -17,4 +17,8 @@ public class OnlyOneCodingFactoryLazy {
         }
         return instance;
     }
+
+    public void doSomething() {
+        System.out.println("Say Hello");
+    }
 }
