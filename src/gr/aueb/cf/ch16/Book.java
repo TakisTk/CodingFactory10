@@ -1,0 +1,40 @@
+package gr.aueb.cf.ch16;
+
+public class Book {
+    private final long id;
+    private final String title;
+    private final String author;
+    private final String isbn;
+
+    public static class Builder {
+        private final long id;
+        private String title = "";
+
+        private String author = "";
+        private final String isbn;
+
+        public Builder(long id, String isbn) {
+            this.id = id;
+            this.isbn = isbn;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Book build() {
+            return new Book(this);
+        }
+    }
+
+    private Book(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.author = builder.author;
+        this.isbn = builder.isbn;
+    }
+
+
+
+}
