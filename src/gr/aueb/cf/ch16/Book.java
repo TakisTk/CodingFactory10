@@ -7,6 +7,7 @@ public class Book {
     private final String isbn;
 
     public static class Builder {
+
         private final long id;
         private String title = "";
 
@@ -20,6 +21,11 @@ public class Book {
 
         public Builder title(String title) {
             this.title = title;
+            return this;
+        }
+
+        public Builder author(String author) {
+            this.author = author;
             return this;
         }
 
