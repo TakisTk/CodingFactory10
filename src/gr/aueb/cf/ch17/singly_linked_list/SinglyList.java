@@ -26,6 +26,25 @@ public class SinglyList<T> {
         n.setNext(tmp);
     }
 
+    public Node<T> removeFirst() {
+        if (isEmpty()) return null;
+        Node<T> tmp = head;
+        head = head.getNext();
+        return tmp;
+    }
+
+    public Node<T> removeLast() {
+        if (isEmpty() || head.getNext() == null) {
+            return removeFirst();
+        }
+
+        Node<T> n;
+        for (n = head; n.getNext().getNext() != null; n =n.getNext());
+        Node<T> nodeToReturn = n.getNext();
+        n.setNext(null);
+        return nodeToReturn;
+    }
+
     public boolean isEmpty() {
         return head == null;
     }
