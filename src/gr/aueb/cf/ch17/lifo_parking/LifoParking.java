@@ -20,6 +20,10 @@ public class LifoParking {
     }
 
     public String removeCar() {
+        if (parking.isEmpty()) {
+            System.out.println(LocalDateTime.now() + ", Parking is empty. No car to remove.");
+            return null;
+        }
        String car = parking.pop();
         System.out.println(LocalDateTime.now() + ", Plate Number: " + car + " removed from parking.");
         return car;
