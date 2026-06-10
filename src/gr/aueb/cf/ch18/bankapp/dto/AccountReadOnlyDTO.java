@@ -1,15 +1,13 @@
 package gr.aueb.cf.ch18.bankapp.dto;
 
-import gr.aueb.cf.ch12.Account;
-
 import java.math.BigDecimal;
 
 public record AccountReadOnlyDTO(String iban, BigDecimal balance) {
 
     @Override
     public String toString() {
-     return "IBAN: " + iban  + ", balance: " + balance;
-   }
+        return "IBAN: " + iban + ", Balance: " + balance;
+    }
 }
 
 //public class AccountReadOnlyDTO {
