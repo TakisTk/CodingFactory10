@@ -4,7 +4,10 @@ import gr.aueb.cf.ch18.bankapp.controller.AccountController;
 import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
+
+import static gr.aueb.cf.ch5.CalculatorApp.printMenu;
 
 public class Main {
 
@@ -15,6 +18,8 @@ public class Main {
         String option;
         String iban;
         BigDecimal balance;
+
+
 
         while (true) {
             printMenu();
@@ -30,12 +35,69 @@ public class Main {
 
                         AccountReadOnlyDTO readOnlyDTO = accountController.createNewAccount(iban, balance);
                         System.out.println("\n Ο λογαριασμός δημιουργήθηκε ή ανανεώθηκε επιτυχώς");
-                        System.out.println("IBAN: " + readOnlyDTO.iban() + ", Υπόλοιπο: " + readOnlyDTO.balance() );
+                        System.out.println("IBAN: " + readOnlyDTO.iban() + ", Υπόλοιπο: " + readOnlyDTO.balance());
                     }
+
+                    case "2" -> {
+                        List<AccountReadOnlyDTO> readOnlyDTOS = accountController.getAllAccounts();
+
+                        if (readOnlyDTOS.isEmpty()) {
+                            System.out.println("\nΔεν υπάρχουν λογαριασμοί");
+                        } else {
+                            System.out.println("\n--------------------------");
+                            System.out.println("|       Λογαριασμοί      |");
+                            System.out.println("--------------------------");
+
+                            readOnlyDTOS.forEach(System.out::println);
+                            System.out.println();
+                        }
+                    }
+
+                    case "3" ->{
+                        System.out.print("Παρακαλώ εισάγετε το IBAN: ");
+                        iban = scanner.nextLine().trim();
+                        System.out.print("Παρακαλώ εισάγετε το ποσό κατάθεσης: ");
+                        BigDecimal depositAmount = new BigDecimal(scanner.nextLine().trim());
+
+                        accountController.deposit(iban, depositAmount);
+                        System.out.println("\nΕπιτυχής κατάθεση");
+                        System.out.println("Ποσό κατάθεσης: " + depositAmount + ", Νέο Υπόλοιπο: "); //+
+//                                accountController.getBalance();
+                    }
+
+
+                    case "4" -> {
+                        System.out.print("Παρακαλώ εισάγετε το IBAN: ");
+                        iban = scanner.nextLine().trim();
+                        System.out.print("Παρακαλώ εισάγετε το ποσό ανάληψης: ");
+                        BigDecimal withdrawAmount = new BigDecimal(scanner.nextLine().trim());
+
+                        accountController.withdraw(iban, withdrawAmount);
+                        System.out.println("\nΕπιτυχής Ανάληψη");
+                        System.out.println("Ποσό ανάληψης: " + withdrawAmount + ", Νέο Υπόλοιπο: "); //+
+//                                accountController.getBalance();
+                    }
+
+                    case "5" -> {
+                        System.out.print("Παρακαλώ εισάγετε το IBAN: ");
+                        iban = scanner.nextLine().trim();
+
+                        balance = accountController.getBalance(iban);
+
+                        System.out.println("\nΥπόλοιπο: " + balance);
+                    }
+
+                    case "Q", "q" -> {
+                        System.out.println("\nΈξοδος");
+                        scanner.close();
+                        return;
+                    }
+
                     default -> System.out.println("\nΜη έγκυρη επιλογή");
+
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
             }
 
         }
@@ -45,9 +107,9 @@ public class Main {
 
 
     private static void printMenu() {
-        System.out.println("\n=======================");
+        System.out.println("\n===========================");
         System.out.println("|     Υτηρεσία Bank App    |");
-        System.out.println("=======================");
+        System.out.println("===========================");
         System.out.println("Υποσύστημα Τράπεζας");
         System.out.println("1. Δημιουργία / Ενημέρωση λογαριασμού");
         System.out.println("2. Προβολή λογαριασμών");
