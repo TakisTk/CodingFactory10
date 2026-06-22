@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CodingFactory10.iml" filepath="$PROJECT_DIR$/CodingFactory10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/gr/aueb/cf/ch18/bankapp_mysql/lib/lib.iml" filepath="$PROJECT_DIR$/src/gr/aueb/cf/ch18/bankapp_mysql/lib/lib.iml" />
     </modules>
   </component>
 </project>
