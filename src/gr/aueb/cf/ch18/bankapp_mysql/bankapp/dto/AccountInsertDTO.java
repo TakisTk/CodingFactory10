@@ -1,4 +1,4 @@
-package gr.aueb.cf.ch18.bankapp.dto;
+package gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto;
 
 import java.math.BigDecimal;
 

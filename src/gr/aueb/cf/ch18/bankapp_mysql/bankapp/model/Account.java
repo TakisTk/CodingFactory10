@@ -1,4 +1,4 @@
-package gr.aueb.cf.ch18.bankapp.model;
+package gr.aueb.cf.ch18.bankapp_mysql.bankapp.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

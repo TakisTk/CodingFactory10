@@ -12,9 +12,9 @@ public class DBHelper {
     static {
         HikariConfig config = new HikariConfig();
 
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/bankdbdev" +
+        config.setJdbcUrl("jdbc:mysql://localhost:3307/bankdb" +
                 "?sslMode=preferred&serverTimeZone=UTC&allowPublicKeyRetrieval=true");
-        config.setUsername("bankuser10");
+        config.setUsername("bankuser");
         config.setPassword("C0d1ngF@");
 
         datasource = new HikariDataSource();
